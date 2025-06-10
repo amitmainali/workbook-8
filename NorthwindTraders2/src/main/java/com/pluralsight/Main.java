@@ -22,8 +22,8 @@ public class Main {
 
         ResultSet resultSet = preparedStatement.executeQuery();
 
-        System.out.printf("%-5s %-25s %-10s %-10s\n", "Id", "Name", "Price", "Stock");
-        System.out.printf("----- ------------------------- ---------- ----------\n");
+        System.out.printf("%-5s %-40s %-10s %-10s\n", "Id", "Name", "Price", "Stock");
+        System.out.printf("----------------------------------------------------------------\n");
 
         while (resultSet.next()) {
             int id = resultSet.getInt("ProductID");
@@ -31,7 +31,7 @@ public class Main {
             double price = resultSet.getDouble("UnitPrice");
             int stock = resultSet.getInt("UnitsInStock");
 
-            System.out.printf("%-5d %-25s $%-9.2f %-10d\n", id, name, price, stock);
+            System.out.printf("%-5d %-40s $%-9.2f %5d\n", id, name, price, stock);
         }
 
         resultSet.close();
